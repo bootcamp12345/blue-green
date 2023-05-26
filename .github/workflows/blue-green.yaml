@@ -14,7 +14,7 @@ on:
 
 env:
   ACR_NAME: myacrforme.azurecr.io
-  ACR_REPO_NAME: demogaurav.azurecr.io/docker-java-app
+  ACR_REPO_NAME: myacrforme.azurecr.io/docker-java-app
   ARTIFACT_NAME: docker-java-app
   RESOURCE_GROUP: az-aks-cl-1-cus
   AKS_CLUSTER_NAME: az-aks-cl-1-cus
@@ -48,7 +48,7 @@ jobs:
             ./kubernetes/service.yaml
             ./kubernetes/blue-deploy.yaml
           images: |
-            demogaurav.azurecr.io/green-nginx:1
+            myacrforme.azurecr.io/green-nginx:1
           strategy: blue-green
           traffic-split-method: pod
           action: deploy  #deploy is the default; we will later use this to promote/reject
@@ -82,7 +82,7 @@ jobs:
             ./kubernetes/service.yaml
             ./kubernetes/green-deploy.yaml
           images: |
-            demogaurav.azurecr.io/green-nginx:1
+            myacrforme.azurecr.io/green-nginx:1
           strategy: blue-green
           traffic-split-method: pod
           action: promote  #deploy is the default; we will later use this to promote/reject
@@ -96,7 +96,7 @@ jobs:
             ./kubernetes/service.yaml
             ./kubernetes/blue-deploy.yaml
           images: |
-            demogaurav.azurecr.io/green-nginx:1
+            myacrforme.azurecr.io/green-nginx:1
           strategy: blue-green
           traffic-split-method: pod
           action: reject  #deploy is the default; we will later use this to promote/reject
