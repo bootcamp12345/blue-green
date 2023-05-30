@@ -41,7 +41,7 @@ jobs:
       
       # Runs a set of commands using the runners shell
       - name: Deploy app
-        uses: azure/k8s-deploy@latest
+        uses: azure/k8s-deploy@v4.9
         with:
           namespace: default
           manifests: |
@@ -74,7 +74,7 @@ jobs:
           resource-group: ${{ env.RESOURCE_GROUP }}
 
       - name: Promote App
-        uses: azure/k8s-deploy@latest
+        uses: azure/k8s-deploy@v4.9
         if: ${{ success() }}
         with:
           namespace: default
@@ -88,7 +88,7 @@ jobs:
           action: promote  #deploy is the default; we will later use this to promote/reject
 
       - name: Reject App
-        uses: azure/k8s-deploy@latest
+        uses: azure/k8s-deploy@v4.9
         if: ${{ failure() }}
         with:
           namespace: default
