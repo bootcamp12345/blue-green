@@ -49,7 +49,7 @@ jobs:
             ./kubernetes/service.yaml
             ./kubernetes/blue-deploy.yaml
           images: |
-            myacrforme.azurecr.io/green-nginx:1
+            myacrforme.azurecr.io/green-nginx:4
           strategy: canary
           traffic-split-method: pod
           action: deploy  #deploy is the default; we will later use this to promote/reject
@@ -88,7 +88,7 @@ jobs:
             ./kubernetes/service.yaml
             ./kubernetes/green-deploy.yaml
           images: |
-            myacrforme.azurecr.io/green-nginx:1
+            myacrforme.azurecr.io/green-nginx:4
           strategy: canary
           traffic-split-method: pod
           action: promote  #deploy is the default; we will later use this to promote/reject
@@ -104,7 +104,7 @@ jobs:
             ./kubernetes/service.yaml
             ./kubernetes/blue-deploy.yaml
           images: |
-            myacrforme.azurecr.io/blue-nginx:2
+            myacrforme.azurecr.io/blue-nginx:3
           strategy: canary
           traffic-split-method: pod
           action: reject  #deploy is the default; we will later use this to promote/reject
