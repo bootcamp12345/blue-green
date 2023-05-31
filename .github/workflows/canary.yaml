@@ -53,7 +53,7 @@ jobs:
           strategy: canary
           traffic-split-method: pod
           action: deploy  #deploy is the default; we will later use this to promote/reject
-          percentage: 20
+          percentage: 50
           baseline-and-canary-replicas: 2
 
   approveapp:
@@ -92,7 +92,7 @@ jobs:
           strategy: canary
           traffic-split-method: pod
           action: promote  #deploy is the default; we will later use this to promote/reject
-          percentage: 20
+          percentage: 50
           baseline-and-canary-replicas: 2
 
       - name: Reject App
@@ -108,5 +108,5 @@ jobs:
           strategy: canary
           traffic-split-method: pod
           action: reject  #deploy is the default; we will later use this to promote/reject
-          percentage: 20
+          percentage: 50
           baseline-and-canary-replicas: 2
