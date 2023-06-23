@@ -48,10 +48,10 @@ jobs:
         with:
           namespace: default
           manifests: |
-            ./kubernetes/service.yaml
+            ./kubernetes/service-blue.yaml
             ./kubernetes/blue-deploy.yaml
           images: |
-            myacrforme.azurecr.io/blue-nginx:2
+            myacrforme.azurecr.io/blue-nginx:3
           strategy: blue-green
           traffic-split-method: pod
           action: deploy  #deploy is the default; we will later use this to promote/reject
@@ -85,7 +85,7 @@ jobs:
         with:
           namespace: default
           manifests: |
-            ./kubernetes/service.yaml
+            ./kubernetes/service-green.yaml
             ./kubernetes/green-deploy.yaml
           images: |
             myacrforme.azurecr.io/green-nginx:1
@@ -99,10 +99,10 @@ jobs:
         with:
           namespace: default
           manifests: |
-            ./kubernetes/service.yaml
+            ./kubernetes/service-blue.yaml
             ./kubernetes/blue-deploy.yaml
           images: |
-            myacrforme.azurecr.io/green-nginx:1
+            myacrforme.azurecr.io/blue-nginx:3
           strategy: blue-green
           traffic-split-method: pod
           action: reject  #deploy is the default; we will later use this to promote/reject
