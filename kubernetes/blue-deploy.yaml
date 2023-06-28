@@ -14,7 +14,7 @@ spec:
     spec:
       containers: 
         - name: nginx-blue
-          image: myacrforme.azurecr.io/blue-nginx:2
+          image: myacrforme.azurecr.io/blue-nginx:3
           ports:
             - name: http
               containerPort: 80
