@@ -46,10 +46,10 @@ jobs:
         with:
           namespace: default
           manifests: |
-            ./kubernetes/service.yaml
-            ./kubernetes/blue-deploy.yaml
+            ./kubernetes/canary-svc.yaml
+            ./kubernetes/canary-1-dep.yaml
           images: |
-            myacrforme.azurecr.io/green-nginx:4
+            myscubakiz/servicedemo:1.0
           strategy: canary
           traffic-split-method: pod
           action: deploy  #deploy is the default; we will later use this to promote/reject
@@ -85,10 +85,10 @@ jobs:
         with:
           namespace: default
           manifests: |
-            ./kubernetes/service.yaml
-            ./kubernetes/green-deploy.yaml
+            ./kubernetes/canary-svc.yaml
+            ./kubernetes/canary-2-dep.yaml
           images: |
-            myacrforme.azurecr.io/green-nginx:4
+            scubakiz/servicedemo:1.0
           strategy: canary
           traffic-split-method: pod
           action: promote  #deploy is the default; we will later use this to promote/reject
@@ -101,10 +101,10 @@ jobs:
         with:
           namespace: default
           manifests: |
-            ./kubernetes/service.yaml
-            ./kubernetes/blue-deploy.yaml
+            ./kubernetes/canary-svc.yaml
+            ./kubernetes/canary-1-dep.yaml
           images: |
-            myacrforme.azurecr.io/blue-nginx:3
+            scubakiz/servicedemo:1.0
           strategy: canary
           traffic-split-method: pod
           action: reject  #deploy is the default; we will later use this to promote/reject
