@@ -85,7 +85,7 @@ jobs:
         with:
           namespace: default
           manifests: |
-            ./kubernetes/service-green.yaml
+            ./kubernetes/service-blue.yaml
             ./kubernetes/green-deploy.yaml
           images: |
             myacrforme.azurecr.io/green-nginx:4

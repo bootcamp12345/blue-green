@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-blue
+  name: nginx
 spec:
   replicas: 3
   selector:
       matchLabels:
-        app: nginx-blue
+        app: nginx
   template:
     metadata:
       labels:
-        app: nginx-blue
+        app: nginx
     spec:
       containers: 
-        - name: nginx-blue
+        - name: nginx
           image: myacrforme.azurecr.io/blue-nginx:3
           ports:
             - name: http
